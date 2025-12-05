@@ -1,0 +1,14 @@
+Flask
+python-dotenv
+
+# FastAPI for MCP server
+fastapi==0.111.0
+uvicorn==0.23.2
+pydantic==1.10.12
+requests==2.31.0
+
+# Streamlit for chat UI
+streamlit==1.26.0
+
+# Optional: for JSON parsing and robust handling
+jsonschema==4.21.0
