@@ -40,11 +40,13 @@ Below is a screenshot of the Streamlit chat interface:
 ---
 ### 🔄 How It Works
 
-1. The **user enters a prompt** in the Streamlit chat UI.  
-2. The **Ollama LLM (llama3.1:8b)** interprets the request and generates structured email content.  
-3. The **MCP Server** receives this structured output, validates it, and prepares the message.  
-4. The **MCP Server calls the alerts-email-service** with the required payload (to, subject, body).  
-5. The **alerts-email-service** sends the actual email via SMTP.
+1. User enters a prompt in the **Streamlit** chat UI.
+2. Backend (backend.py) calls **MCP Client** (mcp_client.py) with the prompt.
+3. **MCP Client** sends the prompt to **Ollama LLM (llama3.1:8b)** to generate structured email JSON (to, subject, body).
+4. **MCP Client** parses the JSON and calls the **MCP Server** (mcp_server.py) using the send_email tool.
+5. **MCP Server** validates the input and forwards it to **alerts-email-service** (app.py).
+6. **Alerts-email-service** sends the actual email via SMTP.
+7. **MCP Client** receives the response from MCP Server and returns it to the backend for display in the UI.
 
 This forms a fully automated, local **AI Email Bot** pipeline capable of understanding natural language and sending real emails.
 
