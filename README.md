@@ -96,7 +96,7 @@ pip install -r requirements.txt
 
 ### Step 3: start the alerts-email-service
 ```bash
-python alerts-email-service.py
+python app.py
 ```
 
 ### Step 4: start streamlit chat ui
